@@ -1,0 +1,2 @@
+spec: sourcetrail.spec
+tar.bz2: . name=@name@-@version@
