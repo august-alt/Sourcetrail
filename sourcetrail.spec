@@ -17,9 +17,9 @@ BuildRequires: qt5-base-devel qt5-svg-devel
 BuildRequires: clang11.0-devel llvm11.0-devel llvm11.0-devel-static clang11.0-devel-static
 BuildRequires: desktop-file-utils
 
-Requires: sourcetrail-cpp-indexer = %version-%release
+Requires: cpp-indexer = %version-%release
 
-%package sourcetrail-cpp-indexer
+%package cpp-indexer
 Summary: C++ indexer allows you to create projects for Sourcetrail from cmake project
 Group: Development/Other
 
@@ -27,7 +27,7 @@ Group: Development/Other
 Sourcetrail is a free and open-source cross-platform source explorer
 that helps you get productive on unfamiliar source code.
 
-%description sourcetrail-cpp-indexer
+%description cpp-indexer
 Indexes compile_commands.json provided by cmake and creates
 project from C/C++ sources.
 
@@ -67,7 +67,7 @@ desktop-file-install --dir=%{buildroot}/usr/share/applications \
 
 %_desktopdir/sourcetrail.desktop
 
-%files sourcetrail-cpp-indexer
+%files cpp-indexer
 %_bindir/sourcetrail_indexer
 
 %changelog
