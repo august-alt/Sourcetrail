@@ -55,7 +55,7 @@ rm -r %{buildroot}/usr/share/sourcetrail/data/install
 rm -r %{buildroot}/usr/share/sourcetrail/data/fallback/projects/tictactoe_py
 
 desktop-file-install --dir=%{buildroot}/usr/share/applications \
-                     --set-key Exec --set-value %{buildroot}/bin/sourcetrail \
+                     --set-key Exec --set-value /usr/bin/sourcetrail \
                      ../setup/Linux/data/sourcetrail.desktop
 
 %files
