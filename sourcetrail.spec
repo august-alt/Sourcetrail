@@ -17,7 +17,7 @@ BuildRequires: qt5-base-devel qt5-svg-devel
 BuildRequires: clang11.0-devel llvm11.0-devel llvm11.0-devel-static clang11.0-devel-static
 BuildRequires: desktop-file-utils
 
-Requires: cpp-indexer = %version-%release
+Requires: sourcetrail-cpp-indexer = %version-%release
 
 %package cpp-indexer
 Summary: C++ indexer allows you to create projects for Sourcetrail from cmake project
