@@ -56,6 +56,12 @@ void setupApp(int argc, char* argv[])
 		AppPath::setSharedDataDirectoryPath(appPath.getConcatenated(L"/../share").getAbsolute());
 	}
 
+	// Check if bundled as RPM package
+	if (appPath.getConcatenated(L"/../share/sourcetrail/data").exists())
+	{
+		AppPath::setSharedDataDirectoryPath(appPath.getConcatenated(L"/../share/sourcetrail").getAbsolute());
+	}
+
 	std::string userdir(std::getenv("HOME"));
 	userdir.append("/.config/sourcetrail/");
 
