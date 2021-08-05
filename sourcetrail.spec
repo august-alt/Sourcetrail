@@ -1,3 +1,5 @@
+%define st_source_dir %{_builddir}/%name-%version 
+
 Name: sourcetrail
 Version: 2021.1.38
 Release: alt1
@@ -15,7 +17,7 @@ BuildRequires: clang11.0-devel-static libsqlite3-devel llvm11.0-devel-static pyt
 BuildRequires: gcc-c++
 BuildRequires: qt5-base-devel qt5-svg-devel
 BuildRequires: clang11.0-devel llvm11.0-devel llvm11.0-devel-static clang11.0-devel-static
-BuildRequires: desktop-file-utils
+BuildRequires: desktop-file-utils ImageMagick-tools
 
 Requires: sourcetrail-cpp-indexer = %version-%release
 
@@ -45,11 +47,11 @@ cp app/Sourcetrail %{buildroot}/usr/bin/sourcetrail
 cp app/sourcetrail_indexer %{buildroot}/usr/bin/sourcetrail_indexer
 
 mkdir -p %{buildroot}/usr/share/mime/packages
-cp %{_builddir}/%name-%version/setup/Linux/data/sourcetrail-mime.xml %{buildroot}/usr/share/mime/packages/sourcetrail-mime.xml
+cp %{st_source_dir}/setup/Linux/data/sourcetrail-mime.xml %{buildroot}/usr/share/mime/packages/sourcetrail-mime.xml
 
 mkdir -p %{buildroot}/usr/share/sourcetrail
-cp -R %{_builddir}/%name-%version/bin/app/data %{buildroot}/usr/share/sourcetrail
-cp -R %{_builddir}/%name-%version/bin/app/user/projects %{buildroot}/usr/share/sourcetrail/data/fallback
+cp -R %{st_source_dir}/bin/app/data %{buildroot}/usr/share/sourcetrail
+cp -R %{st_source_dir}/bin/app/user/projects %{buildroot}/usr/share/sourcetrail/data/fallback
 rm %{buildroot}/usr/share/sourcetrail/data/*_template.xml
 rm -r %{buildroot}/usr/share/sourcetrail/data/install
 rm -r %{buildroot}/usr/share/sourcetrail/data/fallback/projects/tictactoe_py
@@ -58,7 +60,15 @@ desktop-file-install --dir=%{buildroot}/usr/share/applications \
                      --set-key Exec --set-value /usr/bin/sourcetrail \
                      ../setup/Linux/data/sourcetrail.desktop
 
+for size in 48 64 128 256 512; do
+    mkdir -p %{buildroot}/usr/share/icons/hicolor/''${size}x''${size}/apps/
+    convert %{st_source_dir}/bin/app/data/gui/icon/logo_1024_1024.png -resize ''${size}x''${size} \
+    %{buildroot}/usr/share/icons/hicolor/''${size}x''${size}/apps/sourcetrail.png
+done
+
 %files
+%doc README.md
+
 %_bindir/sourcetrail
 
 %_datadir/mime/packages/sourcetrail-mime.xml
@@ -66,6 +76,12 @@ desktop-file-install --dir=%{buildroot}/usr/share/applications \
 %_datadir/sourcetrail/*
 
 %_desktopdir/sourcetrail.desktop
+
+%_datadir/icons/hicolor/48x48/apps/sourcetrail.png
+%_datadir/icons/hicolor/64x64/apps/sourcetrail.png
+%_datadir/icons/hicolor/128x128/apps/sourcetrail.png
+%_datadir/icons/hicolor/256x256/apps/sourcetrail.png
+%_datadir/icons/hicolor/512x512/apps/sourcetrail.png
 
 %files cpp-indexer
 %_bindir/sourcetrail_indexer
