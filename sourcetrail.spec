@@ -1,4 +1,5 @@
 %define st_source_dir %_builddir/%name-%version
+%define _cmake__builddir BUILD
 
 Name: sourcetrail
 Version: 2021.1.38
@@ -41,8 +42,8 @@ project from C/C++ sources.
 %cmake_build
 
 %install
-cd BUILD
 mkdir -p %buildroot%_bindir
+cd %_cmake__builddir
 cp app/Sourcetrail %buildroot%_bindir/sourcetrail
 cp app/sourcetrail_indexer %buildroot%_bindir/sourcetrail_indexer
 
