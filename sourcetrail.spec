@@ -1,4 +1,4 @@
-%define st_source_dir %{_builddir}/%name-%version 
+%define st_source_dir %_builddir/%name-%version
 
 Name: sourcetrail
 Version: 2021.1.38
@@ -42,28 +42,28 @@ project from C/C++ sources.
 
 %install
 cd BUILD
-mkdir -p %{buildroot}/usr/bin
-cp app/Sourcetrail %{buildroot}/usr/bin/sourcetrail
-cp app/sourcetrail_indexer %{buildroot}/usr/bin/sourcetrail_indexer
+mkdir -p %buildroot%_bindir
+cp app/Sourcetrail %buildroot%_bindir/sourcetrail
+cp app/sourcetrail_indexer %buildroot%_bindir/sourcetrail_indexer
 
-mkdir -p %{buildroot}/usr/share/mime/packages
-cp %{st_source_dir}/setup/Linux/data/sourcetrail-mime.xml %{buildroot}/usr/share/mime/packages/sourcetrail-mime.xml
+mkdir -p %buildroot%_datadir/mime/packages
+cp %st_source_dir/setup/Linux/data/sourcetrail-mime.xml %buildroot%_datadir/mime/packages/sourcetrail-mime.xml
 
-mkdir -p %{buildroot}/usr/share/sourcetrail
-cp -R %{st_source_dir}/bin/app/data %{buildroot}/usr/share/sourcetrail
-cp -R %{st_source_dir}/bin/app/user/projects %{buildroot}/usr/share/sourcetrail/data/fallback
-rm %{buildroot}/usr/share/sourcetrail/data/*_template.xml
-rm -r %{buildroot}/usr/share/sourcetrail/data/install
-rm -r %{buildroot}/usr/share/sourcetrail/data/fallback/projects/tictactoe_py
+mkdir -p %buildroot%_datadir/sourcetrail
+cp -R %st_source_dir/bin/app/data %buildroot%_datadir/sourcetrail
+cp -R %st_source_dir/bin/app/user/projects %buildroot%_datadir/sourcetrail/data/fallback
+rm %buildroot%_datadir/sourcetrail/data/*_template.xml
+rm -r %buildroot%_datadir/sourcetrail/data/install
+rm -r %buildroot%_datadir/sourcetrail/data/fallback/projects/tictactoe_py
 
-desktop-file-install --dir=%{buildroot}/usr/share/applications \
-                     --set-key Exec --set-value /usr/bin/sourcetrail \
+desktop-file-install --dir=%buildroot%_datadir/applications \
+                     --set-key Exec --set-value %_bindir/sourcetrail \
                      ../setup/Linux/data/sourcetrail.desktop
 
 for size in 48 64 128 256 512; do
-    mkdir -p %{buildroot}/usr/share/icons/hicolor/''${size}x''${size}/apps/
-    convert %{st_source_dir}/bin/app/data/gui/icon/logo_1024_1024.png -resize ''${size}x''${size} \
-    %{buildroot}/usr/share/icons/hicolor/''${size}x''${size}/apps/sourcetrail.png
+    mkdir -p %buildroot%_datadir/icons/hicolor/''${size}x''${size}/apps/
+    convert %st_source_dir/bin/app/data/gui/icon/logo_1024_1024.png -resize ''${size}x''${size} \
+    %buildroot%_datadir/icons/hicolor/''${size}x''${size}/apps/sourcetrail.png
 done
 
 %files
