@@ -13,10 +13,10 @@ Source: %name-%version.tar.bz2
 
 BuildRequires: cmake rpm-macros-cmake
 BuildRequires: boost-asio-devel boost-filesystem-devel boost-interprocess-devel boost-locale-devel boost-program_options-devel
-BuildRequires: clang11.0-devel-static libsqlite3-devel llvm11.0-devel-static python3-dev qt5-svg-devel tinyxml-devel catch2-devel
+BuildRequires: libsqlite3-devel python3-dev qt5-svg-devel tinyxml-devel catch2-devel
 BuildRequires: gcc-c++
 BuildRequires: qt5-base-devel qt5-svg-devel
-BuildRequires: clang11.0-devel llvm11.0-devel llvm11.0-devel-static clang11.0-devel-static
+BuildRequires: llvm-common-clang llvm-common-clang-tools llvm-common-clang-devel llvm-common-clang-devel-static llvm-common-devel lvm-common-devel-static llvm-common-util 
 BuildRequires: desktop-file-utils ImageMagick-tools
 
 Requires: sourcetrail-cpp-indexer = %version-%release
