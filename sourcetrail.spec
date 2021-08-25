@@ -13,7 +13,7 @@ Source: %name-%version.tar.bz2
 
 BuildRequires: cmake rpm-macros-cmake
 BuildRequires: boost-asio-devel boost-filesystem-devel boost-interprocess-devel boost-locale-devel boost-program_options-devel
-BuildRequires: clang-devel-static libsqlite3-devel llvm-devel-static python3-dev qt5-svg-devel tinyxml-devel catch2-devel
+BuildRequires: libsqlite3-devel python3-dev qt5-svg-devel tinyxml-devel catch2-devel
 BuildRequires: gcc-c++
 BuildRequires: qt5-base-devel qt5-svg-devel
 BuildRequires: llvm-common-clang llvm-common-clang-tools llvm-common-clang-devel llvm-common-clang-devel llvm-common-clang-devel-static
