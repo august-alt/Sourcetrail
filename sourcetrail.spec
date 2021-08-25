@@ -38,7 +38,7 @@ project from C/C++ sources.
 
 %build
 %cmake -DBoost_USE_STATIC_LIBS=OFF -DBUILD_CXX_LANGUAGE_PACKAGE=ON
-%cmake_build VERBOSE=1
+%cmake_build
 
 %install
 cd BUILD
