@@ -41,10 +41,9 @@ project from C/C++ sources.
 %cmake_build
 
 %install
-cd BUILD
 mkdir -p %buildroot%_bindir
-cp app/Sourcetrail %buildroot%_bindir/sourcetrail
-cp app/sourcetrail_indexer %buildroot%_bindir/sourcetrail_indexer
+cp %st_source_dir/bin/app/Sourcetrail %buildroot%_bindir/sourcetrail
+cp %st_source_dir/bin/app/sourcetrail_indexer %buildroot%_bindir/sourcetrail_indexer
 
 mkdir -p %buildroot%_datadir/mime/packages
 cp %st_source_dir/setup/Linux/data/sourcetrail-mime.xml %buildroot%_datadir/mime/packages/sourcetrail-mime.xml
