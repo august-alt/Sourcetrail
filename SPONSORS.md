@@ -6,6 +6,8 @@ Sponsors [via Patreon](https://www.patreon.com/sourcetrail).
 
 * Akinobu Fujii
 * Chris Anderson
+* David Manouchehri
+* Manik Singhal
 * Mario van Beek
 * Tai-Wu Chiang
 * Timothee Besset
@@ -14,10 +16,18 @@ Sponsors [via Patreon](https://www.patreon.com/sourcetrail).
 
 * Alexis Jeandet
 * Anshu Mathur
+* Anthony Marchini
 * Chris Morley
 * dsp
+* Edward Gibbs
+* Georg Friedrich
+* Jean-Luc Burhop
+* Jonathan Nemo
+* Kikuchi Takanori
 * Konstantin Kirenko
 * Louis St-Amour
+* Mario Lioni
+* Simon Pintarelli
 * William Wold
 * XTRON777
 
@@ -25,9 +35,12 @@ Sponsors [via Patreon](https://www.patreon.com/sourcetrail).
 
 * Alex B
 * Andreas
+* anonymous
 * Anton
 * Bicakci, Inc.
+* BJ
 * Christian Hipp
+* Daniel Nissenbaum
 * Dio Lee
 * Ferenc Fejes
 * Frederic Simonis
@@ -35,26 +48,40 @@ Sponsors [via Patreon](https://www.patreon.com/sourcetrail).
 * Graydon Hoare
 * IndustrialRobot
 * Jason Stevens
+* Jeffrey Hofer
 * John Borland
+* kagusanto
+* kale
+* MangerDesPates
 * Matěj Týč
+* Matt Alexander
 * Max Bruckner
+* Michael F. Schönitzer
 * Nakul Dhotre
+* Nathan
+* Nathan Loofbourrow
 * Neil Horlock
 * Nick Moore
 * Nils Moehrle
 * Ouaf
 * Pierre Fransson
 * Rémi Cohen-Scali
+* Robokitty
 * Rui Pires
 * Ryo Koyama
 * Saket Sinha
+* Sam Tuke
 * Simon
 * Sneakyferret
+* Sophie Winter
+* Stephan Roslen
 * Thorsten Dahlheimer
 * Tomi Joki-Korpela
+* Tony Hong
+* Traxes
 * Werner de Groot
 * X. Xu
 * Yacob Cohen-Arazi
 * Yang, Wenbo
-
-_Note: This file will be updated at the beginning of each month._
+* 勇男 金子
+* 郝晨煜
