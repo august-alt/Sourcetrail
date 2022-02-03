@@ -1,8 +1,11 @@
 %define st_source_dir %_builddir/%name-%version
 %define _cmake__builddir BUILD
 
+# clang doesn't know used LTO flags
+%define optflags_lto -flto=thin
+
 Name: sourcetrail
-Version: 2021.1.38
+Version: 2021.4.19
 Release: alt1
 
 Summary: Sourcetrail allows you to explore code-base using graphical interface
@@ -17,10 +20,8 @@ BuildRequires: boost-asio-devel boost-filesystem-devel boost-interprocess-devel 
 BuildRequires: libsqlite3-devel python3-dev qt5-svg-devel tinyxml-devel catch2-devel
 BuildRequires: gcc-c++
 BuildRequires: qt5-base-devel qt5-svg-devel
-BuildRequires: llvm-common-clang llvm-common-clang-tools llvm-common-clang-devel llvm-common-clang-devel-static llvm-common-devel llvm-common-devel-static llvm-common-util llvm-common-clangd llvm-common-lld llvm-common-lldb llvm-common-lld-devel
+BuildRequires: clang clang-devel clang-devel-static clang-tools clangd lld lld-devel lldb llvm llvm-common llvm-devel llvm-devel-static rpm-macros-llvm-common
 BuildRequires: desktop-file-utils ImageMagick-tools
-
-Requires: sourcetrail-cpp-indexer = %version-%release
 
 %package cpp-indexer
 Summary: C++ indexer allows you to create projects for Sourcetrail from cmake project
@@ -38,7 +39,10 @@ project from C/C++ sources.
 %setup
 
 %build
-%cmake -DBoost_USE_STATIC_LIBS=OFF -DBUILD_CXX_LANGUAGE_PACKAGE=ON
+export CC=clang
+export CXX=clang++
+
+%cmake -DBoost_USE_STATIC_LIBS=OFF -DBUILD_CXX_LANGUAGE_PACKAGE=ON -DLLVM_LINK_LLVM_DYLIB=ON -DCLANG_LINK_CLANG_DYLIB=ON -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld -DLLVM_DIR=$(llvm-config --cmakedir)
 %cmake_build
 
 %install
@@ -88,5 +92,8 @@ done
 %_bindir/sourcetrail_indexer
 
 %changelog
+* Thu Feb 03 2022 Vladimir Rubanov <august@altlinux.org> 2021.4.19-alt1
+- Bump version
+
 * Tue Aug 03 2021 Vladimir Rubanov <august@altlinux.org> 2021.1.38-alt1
 - initial build
